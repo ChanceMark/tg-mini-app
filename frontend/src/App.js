@@ -8,14 +8,16 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    WebApp.ready();
     fetchMessage();
+    WebApp.ready();
   }, []);
 
   const fetchMessage = async () => {
     try {
       const response = await axios.get('http://localhost:8080/api/message');
-      setMessage(response.data.text);
+      const data = await response.data;
+      setMessage(data);
+      console.log(data);
     } catch (error) {
       console.error('Error fetching message:', error);
     }
@@ -27,11 +29,29 @@ function App() {
 
   WebApp.MainButton.setText('Click me!').show().onClick(handleMainButtonClick);
 
+  console.log(message);
+
+  if (message == '') {
+    return(
+      <div className="App">
+        <h2>Loading...</h2>
+      </div>
+    )
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Telegram Mini App</h1>
-        <p>{message}</p>
+        {/* <p>{message}</p> */}
+        <h2>Product List</h2>
+        <ul>
+          {message.map(product => (
+              <li key={product.ID}>
+                {product.Name} - ${product.Price}
+              </li>
+          ))}
+        </ul>
       </header>
     </div>
   );
