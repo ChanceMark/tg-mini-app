@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  background-color: #e0e5ec;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #1a1a1a;
 }
 
 .App-logo {
@@ -22,10 +30,23 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background: #e0e5ec;
+  border-radius: 50px;
+  padding: 20px;
+  box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-top: 20px;
 }
 
 @keyframes App-logo-spin {
