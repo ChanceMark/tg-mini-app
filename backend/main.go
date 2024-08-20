@@ -17,7 +17,8 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/message", func(w http.ResponseWriter, r *http.Request) {
-		message := Message{Text: "Hello from Golang backend!"}
+		// message := Message{Text: "Hello from Golang backend!"}
+		message := getProducts()
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(message)
 	})
