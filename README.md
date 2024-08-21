@@ -10,7 +10,7 @@ To run the backend:
 
 ```bash
 cd backend
-go run main.go
+go run .
 ```
 
 The server will start on http://localhost:8080
@@ -23,6 +23,7 @@ To run the frontend:
 
 ```bash
 cd frontend
+yarn
 yarn start
 ```
 
